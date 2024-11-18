@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://h6hvqvhgoo7n"]
+[gd_scene load_steps=5 format=4 uid="uid://h6hvqvhgoo7n"]
 
 [ext_resource type="PackedScene" uid="uid://x2qap5yykocj" path="res://player.tscn" id="1_0vj5a"]
 [ext_resource type="Texture2D" uid="uid://4vd4e36mfotl" path="res://assets/brackeys/sprites/world_tileset.png" id="2_x38j7"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rf4os"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_teheq"]
 texture = ExtResource("2_x38j7")
@@ -173,12 +171,6 @@ position = Vector2(-1, -23)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(35, 17)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("WorldBoundaryShape2D_rf4os")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-6, -17)
