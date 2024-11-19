@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=4 uid="uid://h6hvqvhgoo7n"]
 
-[ext_resource type="PackedScene" uid="uid://x2qap5yykocj" path="res://player.tscn" id="1_0vj5a"]
-[ext_resource type="Texture2D" uid="uid://4vd4e36mfotl" path="res://assets/brackeys/sprites/world_tileset.png" id="2_x38j7"]
+[ext_resource type="PackedScene" uid="uid://x2qap5yykocj" path="res://player.tscn" id="1_b2bdt"]
+[ext_resource type="Texture2D" uid="uid://4vd4e36mfotl" path="res://assets/brackeys/sprites/world_tileset.png" id="2_yvtfc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_teheq"]
-texture = ExtResource("2_x38j7")
+texture = ExtResource("2_yvtfc")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -158,16 +158,17 @@ texture = ExtResource("2_x38j7")
 2:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_8csms"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
 sources/0 = SubResource("TileSetAtlasSource_teheq")
 
 [node name="bergLevel" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_0vj5a")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_b2bdt")]
 position = Vector2(-12, 3)
+collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(-1, -23)
+position = Vector2(-1, -11)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0

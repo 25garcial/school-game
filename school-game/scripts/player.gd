@@ -3,7 +3,20 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -250.0
+const potions = {
+	"red_potion": preload("res://scenes/red_potion.tscn")
+}
 
+func throwPotion(potion):
+	var instance = potions[potion].instantiate()
+	instance.position=position
+	#instance=RigidBody2D.new()
+	instance.linear_velocity=velocity
+	instance.linear_velocity[0]+=150
+	instance.linear_velocity[1]+=-200
+	instance.set_collision_layer_value(1,false)
+	print(instance.collision_layer)
+	get_parent().add_child(instance)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -13,7 +26,8 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	if Input.is_action_just_pressed("potionThrow"):
+		throwPotion("red_potion")
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")

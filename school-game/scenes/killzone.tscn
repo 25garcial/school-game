@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://bb682b7toha6t"]
+[gd_scene load_steps=2 format=3 uid="uid://bb682b7toha6t"]
 
-[node name="Area2D" type="Area2D"]
+[ext_resource type="Script" path="res://scripts/killzone.gd" id="1_n0g1a"]
+
+[node name="killzone" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_n0g1a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
