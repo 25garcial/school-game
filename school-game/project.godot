@@ -11,9 +11,7 @@ config_version=5
 [application]
 
 config/name="school-game"
-
 run/main_scene="res://scenes/levels/berg_level.tscn"
-
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
