@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://h6hvqvhgoo7n"]
+[gd_scene load_steps=9 format=4 uid="uid://h6hvqvhgoo7n"]
 
-[ext_resource type="PackedScene" uid="uid://x2qap5yykocj" path="res://player.tscn" id="1_b2bdt"]
+[ext_resource type="PackedScene" uid="uid://x2qap5yykocj" path="res://scenes/player.tscn" id="1_b2bdt"]
 [ext_resource type="Texture2D" uid="uid://4vd4e36mfotl" path="res://assets/brackeys/sprites/world_tileset.png" id="2_yvtfc"]
 [ext_resource type="PackedScene" uid="uid://bb682b7toha6t" path="res://scenes/killzone.tscn" id="3_7kacf"]
 [ext_resource type="PackedScene" uid="uid://dxommho0cb7ty" path="res://scenes/red_potion.tscn" id="4_ecch7"]
+[ext_resource type="PackedScene" uid="uid://cbuikf1tru2t4" path="res://scenes/enemy.tscn" id="5_2hyus"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_teheq"]
 texture = ExtResource("2_yvtfc")
@@ -189,3 +190,6 @@ position = Vector2(-2, 121)
 shape = SubResource("WorldBoundaryShape2D_712w0")
 
 [node name="red potion" parent="killzone" instance=ExtResource("4_ecch7")]
+
+[node name="Node2D" parent="." instance=ExtResource("5_2hyus")]
+position = Vector2(240, -14)

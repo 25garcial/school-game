@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://da4c7yis3sab4" path="res://assets/brackeys/sprites/RowdyAnimations/MinRowdySpritesheet.png" id="1_pvdyt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fnuua"]
-size = Vector2(16, 19)
+size = Vector2(16, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_twn3h"]
 atlas = ExtResource("1_pvdyt")
@@ -257,7 +257,7 @@ animations = [{
 script = ExtResource("1_mapgb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1.5)
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_fnuua")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
