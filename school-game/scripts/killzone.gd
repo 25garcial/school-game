@@ -12,5 +12,10 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	print("collision")
-	get_tree().reload_current_scene()
+	if (body.name=="CharacterBody2D"):
+		get_tree().reload_current_scene()
+	else:
+		body.queue_free()
+	print("collision: "+body.name)
+	
+	

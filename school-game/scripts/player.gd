@@ -10,12 +10,10 @@ const potions = {
 func throwPotion(potion):
 	var instance = potions[potion].instantiate()
 	instance.position=position
-	#instance=RigidBody2D.new()
+	#instance=RigidBody2D.new() #used only to case RigidBody2D to instance for autocomplete
 	instance.linear_velocity=velocity
 	instance.linear_velocity[0]+=150
 	instance.linear_velocity[1]+=-200
-	instance.set_collision_layer_value(1,false)
-	print(instance.collision_layer)
 	get_parent().add_child(instance)
 
 func _physics_process(delta: float) -> void:
