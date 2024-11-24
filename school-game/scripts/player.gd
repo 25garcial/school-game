@@ -14,6 +14,7 @@ func throwPotion(potion):
 	instance.linear_velocity=velocity
 	instance.linear_velocity[0]+=150
 	instance.linear_velocity[1]+=-200
+	instance.angular_velocity=45.0
 	get_parent().add_child(instance)
 
 func _physics_process(delta: float) -> void:
