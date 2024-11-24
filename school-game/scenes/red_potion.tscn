@@ -4,9 +4,6 @@
 [ext_resource type="Script" path="res://scripts/red_potion.gd" id="1_o48cl"]
 [ext_resource type="Texture2D" uid="uid://bx1hu6uf1xjw4" path="res://assets/placeholders/Effect and FX Pixel All Free/Part 1/25.png" id="3_x1em3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_68vrk"]
-size = Vector2(6, 8)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_wg5u1"]
 atlas = ExtResource("3_x1em3")
 region = Rect2(0, 448, 64, 64)
@@ -110,18 +107,16 @@ animations = [{
 }],
 "loop": false,
 "name": &"EXPLOSION",
-"speed": 24.0
+"speed": 23.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68vrk"]
+size = Vector2(6, 8)
 
 [node name="red potion" type="RigidBody2D"]
 position = Vector2(1, -2)
 collision_layer = 2
-collision_mask = 2
-script = ExtResource("1_o48cl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1.19209e-07)
-shape = SubResource("RectangleShape2D_68vrk")
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, 0)
@@ -129,11 +124,24 @@ scale = Vector2(0.59375, 0.59375)
 texture = ExtResource("1_7ih8w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.999998, 1)
+visible = false
+position = Vector2(-1, -11)
 scale = Vector2(0.515625, 0.515625)
 sprite_frames = SubResource("SpriteFrames_lrdac")
 animation = &"EXPLOSION"
 frame = 13
 frame_progress = 1.0
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_o48cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 1.19209e-07)
+shape = SubResource("RectangleShape2D_68vrk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_68vrk")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="Area2D" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
