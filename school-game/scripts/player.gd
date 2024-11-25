@@ -19,7 +19,7 @@ func throwPotion(potion):
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	top_down_movement(delta)
+	#top_down_movement(delta)
 	side_movement(delta)
 	move_and_slide()
 
