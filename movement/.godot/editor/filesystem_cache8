@@ -1,9 +1,0 @@
-ea4bc82a6ad023ab7ee23ee620429895
-::res://::1732567937
-::res://art/::1732567816
-MinRowdySpritesheet.png::CompressedTexture2D::949788907682330107::1732567816::1732567938::1::::<><>::
-::res://scenes/::1732567816
-animated_sprite_2d.gd::GDScript::-1::1732567816::0::1::::<>AnimatedSprite2D<>::
-player.tscn::PackedScene::8922887317317521315::1732567816::0::1::::<><>::res://Scripts/player.gd<>uid://nsc5csdq7ynb::::res://art/MinRowdySpritesheet.png<>res://scenes/animated_sprite_2d.gd
-::res://Scripts/::1732567816
-player.gd::GDScript::-1::1732567816::0::1::::<>CharacterBody2D<>::
