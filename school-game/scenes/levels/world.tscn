@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=4 uid="uid://dpsngftddmsyj"]
 
-[ext_resource type="Script" path="res://Scripts/world.gd" id="1_4nj51"]
 [ext_resource type="Texture2D" uid="uid://bgfa7sw2lioa2" path="res://assets/art/Pixel Crawler - FREE - 1.8/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="1_b754j"]
-[ext_resource type="PackedScene" uid="uid://x2qap5yykocj" path="res://scenes/player.tscn" id="2_l4bp3"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_w3hrh"]
 [ext_resource type="Texture2D" uid="uid://b4php7n7xhjvd" path="res://assets/art/Pixel Crawler - FREE - 1.8/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Props.png" id="2_peh7j"]
 [ext_resource type="Texture2D" uid="uid://crq6ieu42x8g8" path="res://assets/art/Dungeon1.png" id="4_vkapv"]
+[ext_resource type="PackedScene" uid="uid://d0ekwd66htjct" path="res://scenes/playerTopdown.tscn" id="5_c42re"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fxl20"]
 texture = ExtResource("1_b754j")
@@ -616,7 +616,7 @@ size = Vector2(43.5, 136)
 
 [node name="world" type="Node2D"]
 position = Vector2(573, 288)
-script = ExtResource("1_4nj51")
+script = ExtResource("1_w3hrh")
 
 [node name="Layer0" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -638,9 +638,6 @@ scale = Vector2(4.5, 4.5)
 tile_map_data = PackedByteArray("AAD9////AQAFAAIAAAD8////AQAEAAIAAAD8/wAAAQACAAQAAAA=")
 tile_set = SubResource("TileSet_wyrn0")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_l4bp3")]
-position = Vector2(76, 73)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, 37)
 
@@ -659,6 +656,8 @@ position = Vector2(124, -47)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room_right_transition"]
 position = Vector2(498.75, 120)
 shape = SubResource("RectangleShape2D_11umf")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_c42re")]
 
 [connection signal="body_entered" from="Room_right_transition" to="." method="_on_room_right_transition_body_entered"]
 [connection signal="body_exited" from="Room_right_transition" to="." method="_on_room_right_transition_body_exited"]
