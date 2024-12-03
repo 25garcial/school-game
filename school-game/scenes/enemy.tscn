@@ -1,7 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbuikf1tru2t4"]
+[gd_scene load_steps=17 format=3 uid="uid://cbuikf1tru2t4"]
 
 [ext_resource type="Texture2D" uid="uid://dlmnbe587qtf2" path="res://assets/brackeys/sprites/slime_green.png" id="1_q77n4"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_w55ry"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dau3q"]
+atlas = ExtResource("1_q77n4")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_freb2"]
+atlas = ExtResource("1_q77n4")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17350"]
+atlas = ExtResource("1_q77n4")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guj0p"]
+atlas = ExtResource("1_q77n4")
+region = Rect2(72, 48, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hbg6a"]
 atlas = ExtResource("1_q77n4")
@@ -19,8 +35,41 @@ region = Rect2(48, 24, 24, 24)
 atlas = ExtResource("1_q77n4")
 region = Rect2(72, 24, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl47c"]
+atlas = ExtResource("1_q77n4")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep3da"]
+atlas = ExtResource("1_q77n4")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljqns"]
+atlas = ExtResource("1_q77n4")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lka24"]
+atlas = ExtResource("1_q77n4")
+region = Rect2(72, 0, 24, 24)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_v6u34"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dau3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_freb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17350")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guj0p")
+}],
+"loop": false,
+"name": &"damage",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hbg6a")
@@ -35,7 +84,24 @@ animations = [{
 "texture": SubResource("AtlasTexture_nme3v")
 }],
 "loop": true,
-"name": &"default",
+"name": &"move",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl47c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ep3da")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljqns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lka24")
+}],
+"loop": false,
+"name": &"spawn",
 "speed": 10.0
 }]
 
@@ -45,9 +111,10 @@ size = Vector2(12, 14)
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_w55ry")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="slime_animated_sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v6u34")
-autoplay = "default"
+animation = &"spawn"
+autoplay = "spawn"
 
 [node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
 
@@ -62,3 +129,6 @@ target_position = Vector2(21, 13)
 [node name="rayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, 5)
 target_position = Vector2(-19, 13)
+
+[connection signal="animation_finished" from="slime_animated_sprite" to="." method="_on_slime_animated_sprite_animation_finished"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://h6hvqvhgoo7n"]
+[gd_scene load_steps=8 format=4 uid="uid://h6hvqvhgoo7n"]
 
 [ext_resource type="PackedScene" uid="uid://x2qap5yykocj" path="res://scenes/player.tscn" id="1_b2bdt"]
 [ext_resource type="Texture2D" uid="uid://4vd4e36mfotl" path="res://assets/brackeys/sprites/world_tileset.png" id="2_yvtfc"]
@@ -165,8 +165,6 @@ sources/0 = SubResource("TileSetAtlasSource_teheq")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_712w0"]
 
-[sub_resource type="GDScript" id="GDScript_nq3pr"]
-
 [node name="bergLevel" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_b2bdt")]
@@ -190,6 +188,5 @@ position = Vector2(-2, 121)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 shape = SubResource("WorldBoundaryShape2D_712w0")
 
-[node name="enemy" parent="." instance=ExtResource("5_2hyus")]
-position = Vector2(46, 3)
-script = SubResource("GDScript_nq3pr")
+[node name="Node2D" parent="." instance=ExtResource("5_2hyus")]
+position = Vector2(49, 3)
