@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgcqsx0idie5f"]
+
+[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_7brkl"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fje3i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7yevt"]
+radius = 12.0416
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_7brkl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5.96046e-08, 0)
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_fje3i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7yevt")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

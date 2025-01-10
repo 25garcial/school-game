@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cbuikf1tru2t4"]
+[gd_scene load_steps=18 format=3 uid="uid://cbuikf1tru2t4"]
 
 [ext_resource type="Texture2D" uid="uid://dlmnbe587qtf2" path="res://assets/brackeys/sprites/slime_green.png" id="1_q77n4"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_w55ry"]
+[ext_resource type="Texture2D" uid="uid://b4puh8f5m2tpf" path="res://assets/official/EnemyAnimations/Temporary Slimes/TempIceSlime.png" id="3_eaf6w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dau3q"]
 atlas = ExtResource("1_q77n4")
@@ -89,6 +90,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_eaf6w")
+}],
+"loop": false,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_cl47c")
 }, {
 "duration": 1.0,
@@ -106,29 +115,34 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfdo2"]
-size = Vector2(12, 14)
+size = Vector2(21, 17)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_w55ry")
 
 [node name="slime_animated_sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, -3)
+scale = Vector2(0.734375, 0.734375)
 sprite_frames = SubResource("SpriteFrames_v6u34")
-animation = &"spawn"
-autoplay = "spawn"
+animation = &"new_animation"
+autoplay = "new_animation"
 
 [node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_sfdo2")
 
 [node name="rayCastRight" type="RayCast2D" parent="."]
-position = Vector2(0, 5)
 target_position = Vector2(21, 13)
 
 [node name="rayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(-1, 0)
 target_position = Vector2(-19, 13)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
 
 [connection signal="animation_finished" from="slime_animated_sprite" to="." method="_on_slime_animated_sprite_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
