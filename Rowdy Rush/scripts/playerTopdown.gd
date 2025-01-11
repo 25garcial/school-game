@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const speed = 400
+const speed = 260
 var current_dir = "none"
 
 func _physics_process(delta):
@@ -46,26 +46,26 @@ func play_anim(movement):
 		anim.flip_h = false
 		if movement == 1:
 			anim.play("moving_right")
-		elif movement == 0:
-			anim.play("idle")
+		elif movement == 0 and current_dir == "right":
+			anim.play("idle_right")
 
 	elif current_dir == "left":
 		anim.flip_h = false  # Flip horizontally for left movement
 		if movement == 1:
 			anim.play("moving_left")
 		elif movement == 0:
-			anim.play("idle")
+			anim.play("idle_left")
 
 	elif current_dir == "down":
 		anim.flip_h = false
 		if movement == 1:
-			anim.play("moving_forward")
+			anim.play("moving_down")
 		elif movement == 0:
-			anim.play("idle")
+			anim.play("idle_down")
 
 	elif current_dir == "up":
 		anim.flip_h = false
 		if movement == 1:
-			anim.play("moving_backward")
+			anim.play("moving_up")
 		elif movement == 0:
-			anim.play("idle")
+			anim.play("idle_up")

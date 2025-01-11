@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c148gj5385m0l"
-path="res://.godot/imported/frame0008.png-cecfd336253fe28725f16d7afbd6666b.ctex"
+uid="uid://c7020jy7iwjju"
+path="res://.godot/imported/frame0005.png-3bd234b46b0d51e6737ec23452270580.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/official/EnemyAnimations/SquawkRun1/frame0008.png"
-dest_files=["res://.godot/imported/frame0008.png-cecfd336253fe28725f16d7afbd6666b.ctex"]
+source_file="res://assets/official/mob_animations/SquawkRun1/frame0005.png"
+dest_files=["res://.godot/imported/frame0005.png-3bd234b46b0d51e6737ec23452270580.ctex"]
 
 [params]
 

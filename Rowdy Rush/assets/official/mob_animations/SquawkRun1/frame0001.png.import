@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmyetk1b5j6n6"
-path="res://.godot/imported/TempElectricSlime.png-9848f0963500824ad42254779b6a223c.ctex"
+uid="uid://cpp7fbqw5ft4n"
+path="res://.godot/imported/frame0001.png-803ef7e4b761aad424e4e205a1e92872.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/official/EnemyAnimations/Temporary Slimes/TempElectricSlime.png"
-dest_files=["res://.godot/imported/TempElectricSlime.png-9848f0963500824ad42254779b6a223c.ctex"]
+source_file="res://assets/official/mob_animations/SquawkRun1/frame0001.png"
+dest_files=["res://.godot/imported/frame0001.png-803ef7e4b761aad424e4e205a1e92872.ctex"]
 
 [params]
 
