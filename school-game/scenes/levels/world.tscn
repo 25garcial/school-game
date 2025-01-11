@@ -648,7 +648,8 @@ position = Vector2(1155, 36)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
 position = Vector2(577.769, -288.589)
-polygon = PackedVector2Array(-0.769287, 1.58936, -1.76929, 289.589, 71.2307, 288.589, 69.2307, 434.589, 1.23071, 433.589, 1.23071, 645.589, -1148.77, 647.589, -1148.77, -1.41064, -7.76929, 0.589355, -7.76929, -78.4106, -1186.77, -136.411, -1207.77, 681.589, 44.2307, 716.589, 5.23071, 641.589, 5.23071, 434.589, 71.2307, 433.589, 72.2307, 284.589, 1.23071, 286.589, 1.23071, -3.41064, -7.76929, 0.589355)
+build_mode = 1
+polygon = PackedVector2Array(-143.769, 299.589, -1.76929, 289.589, 71.2307, 288.589, 69.2307, 434.589, -146.769, 406.589, -148.769, 506.589, -1009.77, 503.589, -1007.77, 146.589, -159.769, 141.589, -7.76929, -78.4106, -1186.77, -136.411, -1207.77, 681.589, 44.2307, 716.589, 5.23071, 641.589, 5.23071, 434.589, 71.2307, 433.589, 72.2307, 284.589, 1.23071, 286.589, 1.23096, -8.41101, -144.769, 155.589)
 
 [node name="Room_right_transition" type="Area2D" parent="."]
 position = Vector2(124, -47)
@@ -658,6 +659,7 @@ position = Vector2(498.75, 120)
 shape = SubResource("RectangleShape2D_11umf")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_c42re")]
+position = Vector2(79, 65)
 
 [connection signal="body_entered" from="Room_right_transition" to="." method="_on_room_right_transition_body_entered"]
 [connection signal="body_exited" from="Room_right_transition" to="." method="_on_room_right_transition_body_exited"]
