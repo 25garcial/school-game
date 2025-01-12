@@ -3,12 +3,11 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://c2wa3t7iviysg"
-path="res://.godot/imported/PixelOperator8-Bold.ttf-888d1f271a55b65e8f073caf9bc19d64.fontdata"
+valid=false
 
 [deps]
 
 source_file="res://assets/brackeys/fonts/PixelOperator8-Bold.ttf"
-dest_files=["res://.godot/imported/PixelOperator8-Bold.ttf-888d1f271a55b65e8f073caf9bc19d64.fontdata"]
 
 [params]
 

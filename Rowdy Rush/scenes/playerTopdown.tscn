@@ -1,8 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://d0ekwd66htjct"]
+[gd_scene load_steps=38 format=3 uid="uid://bhx45uidu6gnq"]
 
 [ext_resource type="Script" path="res://scripts/playerTopdown.gd" id="1_q6ds1"]
 [ext_resource type="Texture2D" uid="uid://nsc5csdq7ynb" path="res://assets/art/MinRowdySpritesheet.png" id="2_npjav"]
-[ext_resource type="Script" path="res://scripts/animated_sprite_2d.gd" id="3_rr8a8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dj1dl"]
 atlas = ExtResource("2_npjav")
@@ -301,7 +300,6 @@ position = Vector2(-3.72529e-06, -7)
 scale = Vector2(2.1651, 2.375)
 sprite_frames = SubResource("SpriteFrames_h4ee1")
 animation = &"idle_down"
-script = ExtResource("3_rr8a8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.29674, 10.5)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://0vh57trwqueg"]
+[gd_scene load_steps=8 format=4 uid="uid://0vh57trwqueg"]
 
 [ext_resource type="Texture2D" uid="uid://ctd16cmg5p04d" path="res://assets/official/TileSets/Worldmap TileSet2.png" id="1_apdjb"]
-[ext_resource type="PackedScene" uid="uid://d0ekwd66htjct" path="res://scenes/playerTopdown.tscn" id="2_ghf6m"]
+[ext_resource type="PackedScene" uid="uid://bhx45uidu6gnq" path="res://scenes/playerTopdown.tscn" id="2_ghf6m"]
+[ext_resource type="PackedScene" uid="uid://cw8upupjb16ry" path="res://scenes/locked_door.tscn" id="3_cnagk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jf3g"]
 texture = ExtResource("1_apdjb")
@@ -329,3 +330,8 @@ polygon = PackedVector2Array(1062, 319, 442, 320, 442, 310, 390, 310, 390, 320, 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_ghf6m")]
 z_index = 5
 position = Vector2(937, 359)
+
+[node name="LockedDoor" parent="." instance=ExtResource("3_cnagk")]
+z_index = 2
+position = Vector2(224, 331)
+scale = Vector2(2, 2)
