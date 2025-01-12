@@ -1,9 +1,11 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var effect_timer: Timer = $"effect timer"
 
 var direction=1
-const speed= 130.0
-const JUMP_VELOCITY = -250.0
+var speed= 130.0
+var JUMP_VELOCITY = -250.0
+var effects=[] #[name:string, duration:int, "increaseBy:float]
 const potions = {
 	"red_potion": preload("res://scenes/red_potion.tscn")
 }
@@ -18,6 +20,14 @@ func throwPotion(potion):
 	instance.linear_velocity[1]+=-200
 	instance.angular_velocity=45.0
 	get_parent().add_child(instance)
+	
+func apply_effect(type, strength,duration=0):
+	if type=="slow":
+		if not max(speed-strength,0):
+			strength+=speed-strength
+		speed=max(speed-strength,0)
+		if duration:
+			effects.push_front(["slow", duration,strength])
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -44,3 +54,21 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("potionThrow"):
 		throwPotion("red_potion")
 	move_and_slide()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("projectile"):
+		body.queue_free()
+		apply_effect("slow", 50, 10)
+	pass # Replace with function body.
+
+
+func _on_effect_timer_timeout() -> void:
+	for effect in effects:
+		print(effect)
+		effect[1]-=1
+		if effect[1]==0:
+			apply_effect(effect[0], effect[2]*-1)
+			effects.pop_at(effects.find(effect))
+	print(speed)
+		

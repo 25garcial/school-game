@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 var speed=5000
 var target= Vector2(0,0)
 var type="ice"

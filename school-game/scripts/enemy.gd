@@ -36,6 +36,7 @@ func _process(delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_script()==preload("res://scripts/red_potion.gd"):
 		health-=50
+		print(health)
 		#animated_sprite_2d.play("damage")
 
 
