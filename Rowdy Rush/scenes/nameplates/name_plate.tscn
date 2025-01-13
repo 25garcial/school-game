@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://w2al4606qvi3"]
+
+[ext_resource type="Script" path="res://scripts/name_plate.gd" id="1_vl7fa"]
+[ext_resource type="Texture2D" uid="uid://cxye0u0eafsoy" path="res://assets/official/mob_animations/Name_plate.png" id="2_2rt7v"]
+[ext_resource type="PackedScene" uid="uid://b1xgd3rb1oi64" path="res://scenes/interaction/interaction_area.tscn" id="3_dpvwi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijvkb"]
+size = Vector2(47, 61)
+
+[node name="NamePlate" type="Node2D"]
+script = ExtResource("1_vl7fa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_2rt7v")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_dpvwi")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-2.5, 28.5)
+shape = SubResource("RectangleShape2D_ijvkb")
+
+[connection signal="player_exited" from="InteractionArea" to="." method="_on_interaction_area_player_exited"]

@@ -1,15 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://yhsam2ocxlvx"]
+[gd_scene load_steps=3 format=3 uid="uid://yhsam2ocxlvx"]
 
 [ext_resource type="Script" path="res://scripts/interaction_manager.gd" id="1_euc7x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_li7xh"]
+font_color = Color(1, 1, 0.87451, 1)
+outline_size = 8
+outline_color = Color(0.321569, 0.470588, 0, 1)
 
 [node name="InteractionManager" type="Area2D"]
 script = ExtResource("1_euc7x")
 
 [node name="Label" type="Label" parent="."]
 z_index = 20
+texture_filter = 1
 offset_right = 162.0
 offset_bottom = 23.0
 text = "[E] to interact
 "
+label_settings = SubResource("LabelSettings_li7xh")
 horizontal_alignment = 1
 vertical_alignment = 1

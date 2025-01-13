@@ -1,26 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://cw8upupjb16ry"]
 
 [ext_resource type="Texture2D" uid="uid://byhl03ctfe41q" path="res://assets/official/mob_animations/LockedDoor/LockedDoorRun1.png" id="1_0qiqb"]
-[ext_resource type="Script" path="res://scenes/locked_door.gd" id="1_klcgi"]
+[ext_resource type="Script" path="res://scripts/locked_door.gd" id="1_klcgi"]
 [ext_resource type="PackedScene" uid="uid://b1xgd3rb1oi64" path="res://scenes/interaction/interaction_area.tscn" id="3_wfa0o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0rvd"]
-size = Vector2(29, 35.3553)
-
-[sub_resource type="Animation" id="Animation_xfvkb"]
-resource_name = "unlock"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.1, 0.166667, 0.233333, 0.266667, 0.3, 0.933333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [1, 1, 0, 1, 0, 1, 0, 0]
-}
+size = Vector2(21, 35.3553)
 
 [sub_resource type="Animation" id="Animation_qe3us"]
 length = 0.001
@@ -37,6 +22,21 @@ tracks/0/keys = {
 "values": [1]
 }
 
+[sub_resource type="Animation" id="Animation_xfvkb"]
+resource_name = "unlock"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1, 0.166667, 0.233333, 0.266667, 0.3, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 1, 0, 1, 0, 1, 0, 0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xb5hx"]
 _data = {
 "RESET": SubResource("Animation_qe3us"),
@@ -49,7 +49,7 @@ script = ExtResource("1_klcgi")
 [node name="InteractionArea" parent="." instance=ExtResource("3_wfa0o")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(4, 24.5)
+position = Vector2(-9.53674e-07, 24.5)
 skew = 0.785398
 shape = SubResource("RectangleShape2D_h0rvd")
 
@@ -64,3 +64,5 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_xb5hx")
 }
+
+[connection signal="player_exited" from="InteractionArea" to="." method="_on_interaction_area_player_exited"]

@@ -11,9 +11,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _unlock():
-	if unlocked == false:
+	
+	if unlocked == false && Global.gpa >= 0.20:
 		anim.play("unlock")
 		interaction_area.action_name = "open "
 		unlocked = true
-	else:
-		pass
+	if unlocked == false && Global.gpa < 0.20:
+		interaction_area.action_name = "GPA TOO LOW "
+
+
+func _on_interaction_area_player_exited() -> void:
+	if unlocked == false:
+		interaction_area.action_name = "... "
