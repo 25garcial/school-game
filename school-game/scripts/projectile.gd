@@ -1,6 +1,5 @@
-extends CharacterBody2D
-
-var speed=5000
+extends Area2D
+var speed=25
 var target= Vector2(0,0)
 var type="ice"
 # Called when the node enters the scene tree for the first time.
@@ -12,10 +11,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var dir = global_position.direction_to(target) 
 	var movement_amount = speed * delta 
-	#position+=dir * movement_amount
-	velocity=dir*movement_amount
-	move_and_slide()
+	position+=dir*movement_amount
+	
 
 
 func _on_timer_timeout() -> void:
-	self.queue_free()
+	queue_free()

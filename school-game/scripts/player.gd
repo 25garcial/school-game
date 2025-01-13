@@ -57,9 +57,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("projectile"):
-		body.queue_free()
-		apply_effect("slow", 50, 10)
 	pass # Replace with function body.
 
 
@@ -72,3 +69,11 @@ func _on_effect_timer_timeout() -> void:
 			effects.pop_at(effects.find(effect))
 	print(speed)
 		
+
+
+func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	if area.is_in_group("projectile"):
+		if area.type=="ice":
+			apply_effect("slow", 50, 10)
+		area.queue_free()
+		pass # Replace with function body.

@@ -7,11 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_7yevt"]
 radius = 12.0416
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-collision_layer = 0
-collision_mask = 0
-platform_floor_layers = 4294967041
-platform_wall_layers = 1
+[node name="Area2D" type="Area2D" groups=["projectile"]]
 script = ExtResource("1_7brkl")
 
 [node name="Timer" type="Timer" parent="."]
@@ -23,9 +19,7 @@ position = Vector2(-5.96046e-08, 0)
 scale = Vector2(20, 20)
 texture = SubResource("PlaceholderTexture2D_fje3i")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["projectile"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7yevt")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
