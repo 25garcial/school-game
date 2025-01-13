@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_w3hrh"]
 [ext_resource type="Texture2D" uid="uid://b4php7n7xhjvd" path="res://assets/art/Pixel Crawler - FREE - 1.8/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Props.png" id="2_peh7j"]
 [ext_resource type="Texture2D" uid="uid://crq6ieu42x8g8" path="res://assets/art/Dungeon1.png" id="4_vkapv"]
-[ext_resource type="PackedScene" uid="uid://d0ekwd66htjct" path="res://scenes/playerTopdown.tscn" id="5_c42re"]
+[ext_resource type="PackedScene" uid="uid://bhx45uidu6gnq" path="res://scenes/playerTopdown.tscn" id="5_c42re"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fxl20"]
 texture = ExtResource("1_b754j")
