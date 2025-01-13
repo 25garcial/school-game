@@ -13,7 +13,7 @@ var direction=-1
 var health=100
 var armor=100
 var damage=10
-var type="slime"
+@export var type=""
 var speed=35
 
 func _ready() -> void:
@@ -49,6 +49,7 @@ func _on_slime_animated_sprite_animation_finished() -> void:
 
 func _on_timer_timeout() -> void:
 	var shot=projectile.instantiate()
+	shot.type=type
 	shot.target=player.position 
 	shot.position=position
 	get_parent().add_child(shot)

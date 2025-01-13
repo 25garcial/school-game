@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://x2qap5yykocj" path="res://scenes/player.tscn" id="1_b2bdt"]
 [ext_resource type="Texture2D" uid="uid://4vd4e36mfotl" path="res://assets/brackeys/sprites/world_tileset.png" id="2_yvtfc"]
 [ext_resource type="PackedScene" uid="uid://bb682b7toha6t" path="res://scenes/killzone.tscn" id="3_7kacf"]
-[ext_resource type="PackedScene" uid="uid://cbuikf1tru2t4" path="res://scenes/enemy.tscn" id="5_2hyus"]
+[ext_resource type="PackedScene" uid="uid://cbuikf1tru2t4" path="res://scenes/slime.tscn" id="5_2hyus"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_teheq"]
 texture = ExtResource("2_yvtfc")
@@ -188,5 +188,6 @@ position = Vector2(-2, 121)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 shape = SubResource("WorldBoundaryShape2D_712w0")
 
-[node name="Node2D" parent="." instance=ExtResource("5_2hyus")]
-position = Vector2(63, 5)
+[node name="ice slime" parent="." instance=ExtResource("5_2hyus")]
+position = Vector2(63, 6)
+type = "ice"
